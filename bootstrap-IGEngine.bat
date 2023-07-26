@@ -15,7 +15,7 @@ if errorlevel 1 (
     echo Visual Studio Build Tools not found. Installing...
 
     curl -L -o vs_BuildTools.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
-    start /wait vs_BuildTools.exe --quiet --add Microsoft.VisualStudio.Workload.VCTools
+    start /wait vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools
     del vs_BuildTools.exe
 
     echo Visual Studio Build Tools installed.
