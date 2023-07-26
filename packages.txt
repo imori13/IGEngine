@@ -120,7 +120,7 @@ boost-tuple:x64-windows                           1.82.0#2            Boost tupl
 boost-type-index:x64-windows                      1.82.0#2            Boost type_index module
 boost-type-traits:x64-windows                     1.82.0#2            Boost type_traits module
 boost-typeof:x64-windows                          1.82.0#2            Boost typeof module
-boost-ublas:x64-windows                           1.82.0#3            Boost ublas module
+boost-ublas:x64-windows                           1.82.0#2            Boost ublas module
 boost-uninstall:x64-windows                       1.82.0#2            Internal vcpkg port used to uninstall Boost
 boost-units:x64-windows                           1.82.0#2            Boost units module
 boost-unordered:x64-windows                       1.82.0#2            Boost unordered module
@@ -142,5 +142,7 @@ sdl2[base]:x64-windows                                                Base funct
 vcpkg-cmake-config:x64-windows                    2022-02-06#1        
 vcpkg-cmake-get-vars:x64-windows                  2023-03-02          
 vcpkg-cmake:x64-windows                           2023-05-04          
+vulkan-headers:x64-windows                        1.3.250#2           Vulkan header files and API registry
+vulkan:x64-windows                                1.1.82.1#6          A stub package that ensures that the Vulkan SDK ...
 zlib:x64-windows                                  1.2.13              A compression library
 zstd:x64-windows                                  1.5.5               Zstandard - Fast real-time compression algorithm

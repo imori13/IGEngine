@@ -32,6 +32,15 @@ call :checkAndInstall "CMAKE" "Microsoft.VisualStudio.Component.VC.CMake.Project
 
 del vs_BuildTools.exe
 
+echo Installing VulkanSDK...
+if not defined VULKAN_SDK (
+    curl -L -o VulkanSDK-installer.exe https://sdk.lunarg.com/sdk/download/1.3.250.1/windows/VulkanSDK-1.3.250.1-Installer.exe
+    start /wait VulkanSDK-installer.exe /VERYSILENT
+    del VulkanSDK-installer.exe
+) else (
+    echo VulkanSDK is already installed.
+)
+
 echo Installing vcpkg...
 git clone https://github.com/microsoft/vcpkg.git
 

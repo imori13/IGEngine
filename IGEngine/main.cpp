@@ -1,52 +1,131 @@
 #include "pch.hpp"
 
-class GameEngine
+class IInitializer
 {
 public:
-	inline void Run()
+	virtual ~IInitializer() = default;
+};
+
+class IWindow
+{
+public:
+	virtual ~IWindow() = default;
+	virtual gsl::not_null<SDL_Window*> get() const = 0;
+};
+
+class IRenderer
+{
+public:
+	virtual ~IRenderer() = default;
+};
+
+class Initializer : public IInitializer
+{
+public:
+	Initializer()
 	{
-		if (SDL_Init(SDL_INIT_VIDEO) != 0)
+		if(SDL_Init(SDL_INIT_VIDEO) != 0)
 		{
 			throw std::runtime_error("SDL_Init Error: " + std::string(SDL_GetError()));
 		}
-		const auto sdlCleanup = gsl::finally([]() noexcept { SDL_Quit(); });
+	}
+	~Initializer()
+	{
+		SDL_Quit();
+	}
+};
 
-		const gsl::not_null<SDL_Window*> win = SDL_CreateWindow("Hello SDL World", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
-		const auto windowCleanup = gsl::finally([win]() noexcept { SDL_DestroyWindow(win); });
+class Window : public IWindow
+{
+public:
+	Window(const std::string& title, int x, int y, int w, int h, uint32_t flags)
+		:win(SDL_CreateWindow(title.c_str(), x, y, w, h, flags))
+	{
 
-		const gsl::not_null<SDL_Renderer*> ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-		const auto rendererCleanup = gsl::finally([ren]() noexcept { SDL_DestroyRenderer(ren); });
+	}
+	~Window()
+	{
+		SDL_DestroyWindow(win.get());
+	}
 
+	gsl::not_null<SDL_Window*> get() const noexcept override
+	{
+		return win.get();
+	}
+
+private:
+	gsl::not_null<SDL_Window*> win;
+};
+
+class Renderer : public IRenderer
+{
+public:
+	Renderer(/* constructor parameters */)
+	{
+		// Initialize renderer...
+	}
+	~Renderer()
+	{
+		// Clean up renderer...
+	}
+
+	// Add methods as necessary...
+
+private:
+	// Add private members as necessary...
+};
+
+class GameEngine
+{
+public:
+	GameEngine(
+		std::unique_ptr<IInitializer> initializer,
+		std::unique_ptr<IWindow> window,
+		std::unique_ptr<IRenderer> renderer) noexcept
+		: initializer(std::move(initializer))
+		, window(std::move(window))
+		, renderer(std::move(renderer))
+	{
+	}
+
+	void Run() noexcept
+	{
 		SDL_Event event;
 		bool running = true;
 
-		while (running)
+		while(running)
 		{
-			while (SDL_PollEvent(&event))
+			while(SDL_PollEvent(&event))
 			{
-				if (event.type == SDL_QUIT)
+				if(event.type == SDL_QUIT)
 				{
 					running = false;
 				}
 			}
 
-			SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
-			SDL_RenderClear(ren);
-
-			SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
-			SDL_RenderPresent(ren);
+			// レンダリング処理...
 		}
 	}
+
+private:
+	std::unique_ptr<IInitializer> initializer;
+	std::unique_ptr<IWindow> window;
+	std::unique_ptr<IRenderer> renderer;
+	// VulkanInstanceも同様に変更します...
 };
 
 int main(int argc, char* argv[])
 {
 	try
 	{
-		GameEngine game;
+		GameEngine game(
+			std::make_unique<Initializer>(),
+			std::make_unique<Window>("Hello SDL World", 100, 100, 640, 480, SDL_WINDOW_SHOWN),
+			std::make_unique<Renderer>());
+
 		game.Run();
 	}
-	catch (const std::exception& e)
+	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 		return 1;
