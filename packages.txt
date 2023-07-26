@@ -1,0 +1,146 @@
+boost-accumulators:x64-windows                    1.82.0#2            Boost accumulators module
+boost-algorithm:x64-windows                       1.82.0#2            Boost algorithm module
+boost-align:x64-windows                           1.82.0#2            Boost align module
+boost-any:x64-windows                             1.82.0#2            Boost any module
+boost-array:x64-windows                           1.82.0#2            Boost array module
+boost-asio:x64-windows                            1.82.0#3            Boost asio module
+boost-assert:x64-windows                          1.82.0#2            Boost assert module
+boost-assign:x64-windows                          1.82.0#2            Boost assign module
+boost-atomic:x64-windows                          1.82.0#3            Boost atomic module
+boost-beast:x64-windows                           1.82.0#2            Boost beast module
+boost-bimap:x64-windows                           1.82.0#2            Boost bimap module
+boost-bind:x64-windows                            1.82.0#2            Boost bind module
+boost-build:x64-windows                           1.82.0#2            Boost.Build
+boost-callable-traits:x64-windows                 1.82.0#2            Boost callable_traits module
+boost-chrono:x64-windows                          1.82.0#2            Boost chrono module
+boost-circular-buffer:x64-windows                 1.82.0#2            Boost circular_buffer module
+boost-compatibility:x64-windows                   1.82.0#2            Boost compatibility module
+boost-compute:x64-windows                         1.82.0#2            Boost compute module
+boost-concept-check:x64-windows                   1.82.0#2            Boost concept_check module
+boost-config:x64-windows                          1.82.0#2            Boost config module
+boost-container-hash:x64-windows                  1.82.0#2            Boost container_hash module
+boost-container:x64-windows                       1.82.0#2            Boost container module
+boost-context:x64-windows                         1.82.0#2            Boost context module
+boost-contract:x64-windows                        1.82.0#2            Boost contract module
+boost-conversion:x64-windows                      1.82.0#2            Boost conversion module
+boost-convert:x64-windows                         1.82.0#2            Boost convert module
+boost-core:x64-windows                            1.82.0#2            Boost core module
+boost-coroutine2:x64-windows                      1.82.0#2            Boost coroutine2 module
+boost-coroutine:x64-windows                       1.82.0#2            Boost coroutine module
+boost-crc:x64-windows                             1.82.0#2            Boost crc module
+boost-date-time:x64-windows                       1.82.0#2            Boost date_time module
+boost-describe:x64-windows                        1.82.0#2            Boost describe module
+boost-detail:x64-windows                          1.82.0#2            Boost detail module
+boost-dll:x64-windows                             1.82.0#2            Boost dll module
+boost-dynamic-bitset:x64-windows                  1.82.0#2            Boost dynamic_bitset module
+boost-endian:x64-windows                          1.82.0#2            Boost endian module
+boost-exception:x64-windows                       1.82.0#2            Boost exception module
+boost-fiber:x64-windows                           1.82.0#2            Boost fiber module
+boost-filesystem:x64-windows                      1.82.0#2            Boost filesystem module
+boost-flyweight:x64-windows                       1.82.0#2            Boost flyweight module
+boost-foreach:x64-windows                         1.82.0#2            Boost foreach module
+boost-format:x64-windows                          1.82.0#2            Boost format module
+boost-function-types:x64-windows                  1.82.0#2            Boost function_types module
+boost-function:x64-windows                        1.82.0#2            Boost function module
+boost-functional:x64-windows                      1.82.0#2            Boost functional module
+boost-fusion:x64-windows                          1.82.0#2            Boost fusion module
+boost-geometry:x64-windows                        1.82.0#2            Boost geometry module
+boost-gil:x64-windows                             1.82.0#2            Boost gil module
+boost-graph:x64-windows                           1.82.0#2            Boost graph module
+boost-hana:x64-windows                            1.82.0#2            Boost hana module
+boost-heap:x64-windows                            1.82.0#2            Boost heap module
+boost-histogram:x64-windows                       1.82.0#2            Boost histogram module
+boost-hof:x64-windows                             1.82.0#2            Boost hof module
+boost-icl:x64-windows                             1.82.0#2            Boost icl module
+boost-integer:x64-windows                         1.82.0#2            Boost integer module
+boost-interprocess:x64-windows                    1.82.0#2            Boost interprocess module
+boost-interval:x64-windows                        1.82.0#2            Boost interval module
+boost-intrusive:x64-windows                       1.82.0#2            Boost intrusive module
+boost-io:x64-windows                              1.82.0#2            Boost io module
+boost-iostreams:x64-windows                       1.82.0#2            Boost iostreams module
+boost-iostreams[bzip2]:x64-windows                                    Support bzip2 filters
+boost-iostreams[lzma]:x64-windows                                     Support LZMA/xz filters
+boost-iostreams[zlib]:x64-windows                                     Support zlib filters
+boost-iostreams[zstd]:x64-windows                                     Support zstd filters
+boost-iterator:x64-windows                        1.82.0#2            Boost iterator module
+boost-json:x64-windows                            1.82.0#2            Boost json module
+boost-lambda2:x64-windows                         1.82.0#2            Boost lambda2 module
+boost-lambda:x64-windows                          1.82.0#2            Boost lambda module
+boost-leaf:x64-windows                            1.82.0#2            Boost leaf module
+boost-lexical-cast:x64-windows                    1.82.0#2            Boost lexical_cast module
+boost-local-function:x64-windows                  1.82.0#2            Boost local_function module
+boost-locale:x64-windows                          1.82.0#2            Boost locale module
+boost-lockfree:x64-windows                        1.82.0#2            Boost lockfree module
+boost-log:x64-windows                             1.82.0#2            Boost log module
+boost-logic:x64-windows                           1.82.0#2            Boost logic module
+boost-math:x64-windows                            1.82.0#2            Boost math module
+boost-metaparse:x64-windows                       1.82.0#2            Boost metaparse module
+boost-modular-build-helper:x64-windows            1.82.0#4            Internal vcpkg port used to build Boost libraries
+boost-move:x64-windows                            1.82.0#2            Boost move module
+boost-mp11:x64-windows                            1.82.0#2            Boost mp11 module
+boost-mpl:x64-windows                             1.82.0#2            Boost mpl module
+boost-msm:x64-windows                             1.82.0#2            Boost msm module
+boost-multi-array:x64-windows                     1.82.0#2            Boost multi_array module
+boost-multi-index:x64-windows                     1.82.0#2            Boost multi_index module
+boost-multiprecision:x64-windows                  1.82.0#2            Boost multiprecision module
+boost-mysql:x64-windows                           1.82.0#2            Boost mysql module
+boost-nowide:x64-windows                          1.82.0#2            Boost nowide module
+boost-numeric-conversion:x64-windows              1.82.0#2            Boost numeric_conversion module
+boost-odeint:x64-windows                          1.82.0#2            Boost odeint module
+boost-optional:x64-windows                        1.82.0#2            Boost optional module
+boost-outcome:x64-windows                         1.82.0#2            Boost outcome module
+boost-parameter:x64-windows                       1.82.0#2            Boost parameter module
+boost-phoenix:x64-windows                         1.82.0#2            Boost phoenix module
+boost-polygon:x64-windows                         1.82.0#2            Boost polygon module
+boost-pool:x64-windows                            1.82.0#2            Boost pool module
+boost-predef:x64-windows                          1.82.0#2            Boost predef module
+boost-preprocessor:x64-windows                    1.82.0#2            Boost preprocessor module
+boost-property-map:x64-windows                    1.82.0#2            Boost property_map module
+boost-property-tree:x64-windows                   1.82.0#2            Boost property_tree module
+boost-proto:x64-windows                           1.82.0#2            Boost proto module
+boost-ptr-container:x64-windows                   1.82.0#2            Boost ptr_container module
+boost-qvm:x64-windows                             1.82.0#2            Boost qvm module
+boost-random:x64-windows                          1.82.0#2            Boost random module
+boost-range:x64-windows                           1.82.0#2            Boost range module
+boost-ratio:x64-windows                           1.82.0#2            Boost ratio module
+boost-rational:x64-windows                        1.82.0#2            Boost rational module
+boost-regex:x64-windows                           1.82.0#2            Boost regex module
+boost-scope-exit:x64-windows                      1.82.0#2            Boost scope_exit module
+boost-serialization:x64-windows                   1.82.0#2            Boost serialization module
+boost-smart-ptr:x64-windows                       1.82.0#2            Boost smart_ptr module
+boost-spirit:x64-windows                          1.82.0#2            Boost spirit module
+boost-static-assert:x64-windows                   1.82.0#2            Boost static_assert module
+boost-static-string:x64-windows                   1.82.0#2            Boost static_string module
+boost-system:x64-windows                          1.82.0#2            Boost system module
+boost-thread:x64-windows                          1.82.0#2            Boost thread module
+boost-throw-exception:x64-windows                 1.82.0#2            Boost throw_exception module
+boost-tokenizer:x64-windows                       1.82.0#2            Boost tokenizer module
+boost-tti:x64-windows                             1.82.0#2            Boost tti module
+boost-tuple:x64-windows                           1.82.0#2            Boost tuple module
+boost-type-index:x64-windows                      1.82.0#2            Boost type_index module
+boost-type-traits:x64-windows                     1.82.0#2            Boost type_traits module
+boost-typeof:x64-windows                          1.82.0#2            Boost typeof module
+boost-ublas:x64-windows                           1.82.0#2            Boost ublas module
+boost-uninstall:x64-windows                       1.82.0#2            Internal vcpkg port used to uninstall Boost
+boost-units:x64-windows                           1.82.0#2            Boost units module
+boost-unordered:x64-windows                       1.82.0#2            Boost unordered module
+boost-utility:x64-windows                         1.82.0#2            Boost utility module
+boost-uuid:x64-windows                            1.82.0#2            Boost uuid module
+boost-variant2:x64-windows                        1.82.0#2            Boost variant2 module
+boost-variant:x64-windows                         1.82.0#2            Boost variant module
+boost-vcpkg-helpers:x64-windows                   1.82.0#2            Internal vcpkg port used to modularize Boost
+boost-winapi:x64-windows                          1.82.0#2            Boost winapi module
+boost-xpressive:x64-windows                       1.82.0#2            Boost xpressive module
+bzip2:x64-windows                                 1.0.8#4             bzip2 is a freely available, patent free, high-q...
+bzip2[tool]:x64-windows                                               Builds bzip2 executable
+expat:x64-windows                                 2.5.0#3             XML parser library written in C
+libffi:x64-windows                                3.4.4#2             Portable, high level programming interface to va...
+liblzma:x64-windows                               5.4.3#1             Compression library with an API similar to that ...
+ms-gsl:x64-windows                                4.0.0               Microsoft implementation of the Guidelines Suppo...
+sdl2:x64-windows                                  2.26.5              Simple DirectMedia Layer is a cross-platform dev...
+sdl2[base]:x64-windows                                                Base functionality for SDL
+vcpkg-cmake-config:x64-windows                    2022-02-06#1        
+vcpkg-cmake-get-vars:x64-windows                  2023-03-02          
+vcpkg-cmake:x64-windows                           2023-05-04          
+zlib:x64-windows                                  1.2.13              A compression library
+zstd:x64-windows                                  1.5.5               Zstandard - Fast real-time compression algorithm
