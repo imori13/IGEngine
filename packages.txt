@@ -120,7 +120,7 @@ boost-tuple:x64-windows                           1.82.0#2            Boost tupl
 boost-type-index:x64-windows                      1.82.0#2            Boost type_index module
 boost-type-traits:x64-windows                     1.82.0#2            Boost type_traits module
 boost-typeof:x64-windows                          1.82.0#2            Boost typeof module
-boost-ublas:x64-windows                           1.82.0#2            Boost ublas module
+boost-ublas:x64-windows                           1.82.0#3            Boost ublas module
 boost-uninstall:x64-windows                       1.82.0#2            Internal vcpkg port used to uninstall Boost
 boost-units:x64-windows                           1.82.0#2            Boost units module
 boost-unordered:x64-windows                       1.82.0#2            Boost unordered module

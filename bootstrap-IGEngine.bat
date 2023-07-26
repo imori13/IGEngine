@@ -1,4 +1,6 @@
 @echo off
+SETLOCAL
+
 chcp 65001 > nul
 
 echo Checking git...
@@ -6,27 +8,28 @@ git --version >nul 2>&1
 if errorlevel 1 (
     echo Git is not installed. Installing...
     curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/Git-2.41.0.3-64-bit.exe
+    echo Processing...
     start /wait git-installer.exe /VERYSILENT
     del git-installer.exe
 )
 
-"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Workload.VCTools -property installationPath >nul 2>&1
-if errorlevel 1 (
-    echo Visual Studio Build Tools not found. Installing...
+echo Visual Studio Build Tools Installing...
 
-    curl -L -o vs_BuildTools.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
-    start /wait vs_BuildTools.exe --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.CMake.Project --add Microsoft.VisualStudio.Component.English --quiet --wait
-    del vs_BuildTools.exe
+SET VSWHERE="%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 
-    echo Visual Studio Build Tools installed.
-) else (
-    echo Visual Studio Build Tools found.
-)
+curl -L -o vs_BuildTools.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
+
+FOR /F "tokens=* USEBACKQ" %%F IN (`%VSWHERE% -products * -requires Microsoft.VisualStudio.Workload.VCTools -property installationPath`) DO (SET "VCTOOLS=%%F")
+
+FOR /F "tokens=* USEBACKQ" %%F IN (`%VSWHERE% -products * -requires Microsoft.VisualStudio.Component.VC.CMake.Project -property installationPath`) DO (SET "CMAKE=%%F")
+
+call :checkAndInstall "VCTOOLS" "Microsoft.VisualStudio.Workload.VCTools"
+call :checkAndInstall "CMAKE" "Microsoft.VisualStudio.Component.VC.CMake.Project"
+
+del vs_BuildTools.exe
 
 echo Installing vcpkg...
-if not exist vcpkg (
-    git clone https://github.com/microsoft/vcpkg.git
-)
+git clone https://github.com/microsoft/vcpkg.git
 
 echo Initializing vcpkg...
 call .\vcpkg\bootstrap-vcpkg.bat
@@ -42,4 +45,17 @@ if exist packages.txt (
     echo packages.txt was not found.
 )
 
+ENDLOCAL
 pause
+
+goto :eof
+
+:checkAndInstall
+IF NOT DEFINED %~1 (
+    echo %~1 not found. Installing...
+    echo Processing...
+    start /wait vs_BuildTools.exe --add %~2 --quiet --wait || exit /b
+) ELSE (
+    echo %~1 is installed.
+)
+goto :eof

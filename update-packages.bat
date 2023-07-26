@@ -11,6 +11,8 @@ if not exist .\vcpkg (
     exit /b
 )
 
+.\vcpkg\vcpkg.exe update
+
 echo Listing installed packages...
 .\vcpkg\vcpkg.exe list > .\packages.txt
 echo The list of installed packages has been saved to packages.txt.
