@@ -2,17 +2,17 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 
-echo インストール済みのパッケージをpackage.txtにリスト化し保存します...
+echo Listing installed packages in package.txt...
 
 if not exist .\vcpkg (
-    echo vcpkgディレクトリが見つかりませんでした。
-    echo bootstrap-IGEngine.batを実行しましたか？
+    echo vcpkg directory was not found.
+    echo Have you run bootstrap-IGEngine.bat?
     pause
     exit /b
 )
 
-echo インストール済みのパッケージをリストします...
+echo Listing installed packages...
 .\vcpkg\vcpkg.exe list > .\packages.txt
-echo インストール済みのパッケージのリストが packages.txt に保存されました。
+echo The list of installed packages has been saved to packages.txt.
 
 pause
