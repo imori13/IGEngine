@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 
 echo gitをチェックします...
 git --version >nul 2>&1

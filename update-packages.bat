@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 setlocal enabledelayedexpansion
 
 echo インストール済みのパッケージをpackage.txtにリスト化し保存します...
