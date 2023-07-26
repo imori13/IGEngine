@@ -10,13 +10,17 @@ if errorlevel 1 (
     del git-installer.exe
 )
 
-echo Checking VisualStudio Build Tools...
-"%ProgramFiles(x86)%\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsDevCmd.bat" >nul 2>&1
+"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Workload.VCTools -property installationPath >nul 2>&1
 if errorlevel 1 (
-    echo Visual Studio Build Tools is not installed. Installing...
+    echo Visual Studio Build Tools not found. Installing...
+
     curl -L -o vs_BuildTools.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
-    start /wait vs_BuildTools.exe --quiet --wait --norestart --nocache
+    start /wait vs_BuildTools.exe --quiet --add Microsoft.VisualStudio.Workload.VCTools
     del vs_BuildTools.exe
+
+    echo Visual Studio Build Tools installed.
+) else (
+    echo Visual Studio Build Tools found.
 )
 
 echo Installing vcpkg...
