@@ -8,7 +8,6 @@ git --version >nul 2>&1
 if errorlevel 1 (
     echo Git is not installed. Installing...
     curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/Git-2.41.0.3-64-bit.exe
-    echo Processing...
     start /wait git-installer.exe /VERYSILENT
     del git-installer.exe
 )
@@ -18,6 +17,11 @@ echo Visual Studio Build Tools Installing...
 SET VSWHERE="%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 
 curl -L -o vs_BuildTools.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
+
+if not exist %VSWHERE% (
+    echo Visual Studio Installer is not found. Installing...
+    start /wait vs_BuildTools.exe --quiet --wait || exit /b
+)
 
 FOR /F "tokens=* USEBACKQ" %%F IN (`%VSWHERE% -products * -requires Microsoft.VisualStudio.Workload.VCTools -property installationPath`) DO (SET "VCTOOLS=%%F")
 
@@ -53,7 +57,6 @@ goto :eof
 :checkAndInstall
 IF NOT DEFINED %~1 (
     echo %~1 not found. Installing...
-    echo Processing...
     start /wait vs_BuildTools.exe --add %~2 --quiet --wait || exit /b
 ) ELSE (
     echo %~1 is installed.
