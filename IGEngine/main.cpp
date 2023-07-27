@@ -39,7 +39,7 @@ class Window : public IWindow
 {
 public:
 	Window(const std::string& title, int x, int y, int w, int h, uint32_t flags)
-		:win(SDL_CreateWindow(title.c_str(), x, y, w, h, flags))
+		:win(SDL_CreateWindow(title.c_str(), x, y, w, h, flags), SDL_DestroyWindow)
 	{
 
 	}
@@ -54,7 +54,7 @@ public:
 	}
 
 private:
-	gsl::not_null<SDL_Window*> win;
+	gsl::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> win;
 };
 
 class Renderer : public IRenderer
@@ -82,9 +82,9 @@ public:
 		std::unique_ptr<IInitializer> initializer,
 		std::unique_ptr<IWindow> window,
 		std::unique_ptr<IRenderer> renderer) noexcept
-		: initializer(std::move(initializer))
-		, window(std::move(window))
-		, renderer(std::move(renderer))
+			: initializer(std::move(initializer))
+			, window(std::move(window))
+			, renderer(std::move(renderer))
 	{
 	}
 
@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
 	{
 		GameEngine game(
 			std::make_unique<Initializer>(),
-			std::make_unique<Window>("Hello SDL World", 100, 100, 640, 480, SDL_WINDOW_SHOWN),
+			std::make_unique<Window>("Hello SDL World", 100, 100, 800, 450, SDL_WINDOW_SHOWN),
 			std::make_unique<Renderer>());
 
 		game.Run();
