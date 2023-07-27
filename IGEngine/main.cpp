@@ -62,7 +62,32 @@ class Renderer : public IRenderer
 public:
 	Renderer(/* constructor parameters */)
 	{
-		// Initialize renderer...
+		const std::string appName = "Hello, Vulkan";
+
+		std::vector<const char*> extensions;
+
+		VkApplicationInfo appInfo
+		{
+			.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO,
+			.pApplicationName = appName.c_str(),
+			.pEngineName = appName.c_str(),
+			.engineVersion = VK_MAKE_VERSION(1, 0, 0),
+			.apiVersion = VK_API_VERSION_1_1,
+		};
+
+		/* レイヤー、検証レイヤーを有効 */
+		std::array<const char*, 1> layers = { "VK_LAYER_LUNARG_standard_validation" };
+		VkInstanceCreateInfo ci
+		{
+			.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
+			.pApplicationInfo = &appInfo,
+			.enabledLayerCount = gsl::narrow<uint32_t>(layers.size()),
+			.ppEnabledLayerNames = layers.data(),
+			.enabledExtensionCount = gsl::narrow<uint32_t>(extensions.size()),
+			.ppEnabledExtensionNames = extensions.data(),
+		};
+
+		vkCreateInstance(&ci, nullptr, &m_instance);
 	}
 	~Renderer()
 	{
@@ -72,7 +97,7 @@ public:
 	// Add methods as necessary...
 
 private:
-	// Add private members as necessary...
+	VkInstance m_instance;
 };
 
 class GameEngine
@@ -82,9 +107,9 @@ public:
 		std::unique_ptr<IInitializer> initializer,
 		std::unique_ptr<IWindow> window,
 		std::unique_ptr<IRenderer> renderer) noexcept
-			: initializer(std::move(initializer))
-			, window(std::move(window))
-			, renderer(std::move(renderer))
+		: initializer(std::move(initializer))
+		, window(std::move(window))
+		, renderer(std::move(renderer))
 	{
 	}
 

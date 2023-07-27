@@ -16,5 +16,6 @@
 #include <stdexcept>
 #include <vector>
 #include <memory>
+#include <array>
 
 #pragma warning(pop)
