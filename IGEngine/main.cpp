@@ -87,11 +87,12 @@ public:
 			.ppEnabledExtensionNames = extensions.data(),
 		};
 
-		vkCreateInstance(&ci, nullptr, &m_instance);
+		if(vkCreateInstance(&ci, nullptr, &m_instance) != VK_SUCCESS)
+		{ throw std::runtime_error("failed to create instance."); }
 	}
 	~Renderer()
 	{
-		// Clean up renderer...
+		vkDestroyInstance(m_instance, nullptr);
 	}
 
 	// Add methods as necessary...
