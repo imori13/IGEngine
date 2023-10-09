@@ -131,6 +131,8 @@ public:
 
 			// レンダリング処理...
 		}
+
+		std::cout << "aaa" << std::endl;
 	}
 
 private:
